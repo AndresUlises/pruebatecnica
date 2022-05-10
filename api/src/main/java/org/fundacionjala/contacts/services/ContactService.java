@@ -3,6 +3,7 @@ package org.fundacionjala.contacts.services;
 import org.fundacionjala.contacts.db.entities.ContactData;
 import org.fundacionjala.contacts.exceptions.ContactNotFoundException;
 import org.fundacionjala.contacts.exceptions.DuplicatedContactException;
+import org.fundacionjala.contacts.exceptions.InvalidPhoneException;
 import org.fundacionjala.contacts.exceptions.RequiredFieldException;
 import org.fundacionjala.contacts.models.Contact;
 import org.fundacionjala.contacts.repository.ContactRepository;
@@ -69,7 +70,11 @@ public class ContactService implements IContactService {
         }
 
         if (contact.getPhone() < 9999999 || contact.getPhone() > 99999999) {
-            throw new IllegalStateException("Number: " + contact.getPhone() + "is not a valid phone number");
+            try {
+                throw new InvalidPhoneException(contact.getPhone());
+            } catch (InvalidPhoneException e) {
+                throw new RuntimeException(e);
+            }
         }
 
         Optional<ContactData> existingContact = contactRepository.findByEmail(contact.getEmail());

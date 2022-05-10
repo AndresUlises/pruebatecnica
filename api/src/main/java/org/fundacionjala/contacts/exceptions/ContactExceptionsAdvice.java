@@ -39,4 +39,9 @@ public class ContactExceptionsAdvice {
     public String invalidCodeConfirmationHandler(InvalidConfirmationCode exception) {
         return exception.getMessage();
     }
+
+    @ResponseBody
+    @ExceptionHandler(InvalidPhoneException.class)
+    @ResponseStatus(HttpStatus.BAD_REQUEST)
+    public String InvalidPhoneHandler(InvalidPhoneException exception) { return exception.getMessage(); }
 }
