@@ -1,0 +1,12 @@
+{
+  "en": {
+    "forgot-password.title": "Forgot your password?",
+    "forgot-password.content": "Enter your email address below and we'll get you back on track.",
+    "forgot-password.footer.link": "Take me back to login",
+    "forgot-password.form.email.valid-message": "The input is not valid E-mail!",
+    "forgot-password.form.email.required-message": "Please input your E-mail!",
+    "forgot-password.form.email.placehorder": "Your email address",
+    "forgot-password.form.button.label": "Send"
+  },
+  "es": {}
+}

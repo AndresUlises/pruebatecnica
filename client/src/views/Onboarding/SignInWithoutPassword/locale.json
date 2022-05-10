@@ -1,0 +1,11 @@
+{
+  "en": {
+    "login-without-password.title": "Approver Login",
+    "login-without-password.footer.link": "Use the regular login form",
+    "login-without-password.form.email.valid-message": "The input is not valid E-mail!",
+    "login-without-password.form.email.required-message": "Please input your E-mail!",
+    "login-without-password.form.email.placehorder": "Your email address",
+    "login-without-password.form.button.label": "Send Login Email"
+  },
+  "es": {}
+}

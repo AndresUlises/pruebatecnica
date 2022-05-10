@@ -1,0 +1,20 @@
+{
+  "en": {
+    "authentication.title": "Welcome Back",
+    "authentication.spin": "Autheticating...",
+    "authentication.form.email.valid-message": "The input is not valid E-mail!",
+    "authentication.form.email.required-message": "Please input your E-mail!",
+    "authentication.form.email.placehorder": "Your email address or user name",
+    "authentication.form.password.required-message": "Please input your Password!",
+    "authentication.form.password.placehorder": "Your password",
+    "authentication.form.check.label": "Remember me",
+    "authentication.form.link.forgot-label": "Forgot password",
+    "authentication.form.button.label": "Done",
+    "authentication.footer.divider.label": "OR",
+    "authentication.footer.text": "Just approving content?",
+    "authentication.footer.link": "Sign in without a password",
+    "authentication.footer.text1": "Don’t have an account?",
+    "authentication.footer.link1": "Sign Up"
+  },
+  "es": {}
+}
