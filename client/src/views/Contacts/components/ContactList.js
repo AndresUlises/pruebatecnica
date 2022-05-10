@@ -29,6 +29,11 @@ function ContactList({ history }) {
       width: '20%',
     },
     {
+      title: 'Phone number',
+      dataIndex: 'phone',
+      width: '20%',
+    },
+    {
       title: 'Action',
       key: 'action',
       render: (_, record) => (

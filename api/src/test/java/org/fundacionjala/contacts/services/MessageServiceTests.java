@@ -40,7 +40,7 @@ public class MessageServiceTests {
         UserData user = new UserData("Bart Simpson", "password", "bart");
         user.setId(1L);
 
-        ContactData contactData = new ContactData(1L, user.getId(), "Lisa", "lisa@test.com", null);
+        ContactData contactData = new ContactData(1L, user.getId(), "Lisa", "lisa@test.com", 12345678, null);
         Set<ContactData> contacts = Collections.singleton(contactData);
 
         List<MessageData> messages = Arrays.asList(
@@ -70,7 +70,7 @@ public class MessageServiceTests {
         UserData user = new UserData("Bart Simpson", "password", "bart");
         user.setId(1L);
 
-        ContactData contactData = new ContactData(1L, user.getId(), "Lisa", "lisa@test.com", null);
+        ContactData contactData = new ContactData(1L, user.getId(), "Lisa", "lisa@test.com",123345678, null);
         Set<ContactData> contacts = Collections.singleton(contactData);
 
         MessageData messageData = new MessageData(1L, user, "message content A", contacts);

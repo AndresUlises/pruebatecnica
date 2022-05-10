@@ -64,6 +64,14 @@ public class ContactService implements IContactService {
             throw new RequiredFieldException("name");
         }
 
+        if (contact.getPhone() == null) {
+            throw new RequiredFieldException("phone");
+        }
+
+        if (contact.getPhone() < 9999999 || contact.getPhone() > 99999999) {
+            throw new IllegalStateException("Number: " + contact.getPhone() + "is not a valid phone number");
+        }
+
         Optional<ContactData> existingContact = contactRepository.findByEmail(contact.getEmail());
 
         if (existingContact.isPresent()) {

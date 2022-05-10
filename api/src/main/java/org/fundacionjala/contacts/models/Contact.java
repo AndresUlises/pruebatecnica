@@ -17,12 +17,15 @@ public class Contact {
     private Long userId;
     private String name;
     private String email;
+    private Integer phone;
 
-    public Contact() { }
+    public Contact() {
+    }
 
-    public Contact(String name, String email) {
+    public Contact(String name, String email, Integer phone) {
         this.name = name;
         this.email = email;
+        this.phone = phone;
     }
 
     @Override
@@ -31,26 +34,30 @@ public class Contact {
         if (that == null || getClass() != that.getClass()) return false;
         Contact contact = (Contact) that;
         return Objects.equals(id, contact.id) &&
-               Objects.equals(userId, ((Contact) that).userId) &&
-               Objects.equals(name, contact.name) &&
-               Objects.equals(email, contact.email);
+                Objects.equals(userId, ((Contact) that).userId) &&
+                Objects.equals(name, contact.name) &&
+                Objects.equals(email, contact.email) &&
+                Objects.equals(phone, contact.phone);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(id, name, email, userId);
+        return Objects.hash(id, name, email, phone, userId);
     }
 
     @Override
     public String toString() {
         return "Contact{" +
                 "id=" + id +
+                ", userId=" + userId +
                 ", name='" + name + '\'' +
                 ", email='" + email + '\'' +
+                ", phone=" + phone +
                 '}';
     }
 
+
     public ContactData toEntity() {
-        return new ContactData(id, 1L, name, email, new HashSet<>());
+        return new ContactData(id, 1L, name, email, phone, new HashSet<>());
     }
 }

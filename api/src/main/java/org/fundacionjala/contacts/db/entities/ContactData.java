@@ -30,13 +30,17 @@ public class ContactData {
     @Column(nullable = false)
     private String email;
 
+    @Column(nullable = false)
+    private Integer phone;
+
     @ManyToMany
     private Set<MessageData> messages;
 
     public Contact toModel() {
-        Contact contact = new Contact(name, email);
+        Contact contact = new Contact(name, email, phone);
         contact.setId(id);
         contact.setUserId(userId);
+        contact.setPhone(phone);
         return contact;
     }
 

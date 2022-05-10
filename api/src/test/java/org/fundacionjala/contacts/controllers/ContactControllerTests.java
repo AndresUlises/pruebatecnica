@@ -44,7 +44,7 @@ public class ContactControllerTests {
     @Test
     public void shouldReturnOkStatusWhenRetrievingContactById() throws Exception {
 
-        ContactData contact = new ContactData(1L, 1L, "Lisa", "lisa@test.com", new HashSet<>());
+        ContactData contact = new ContactData(1L, 1L, "Lisa", "lisa@test.com",123345678, new HashSet<>());
 
         when(contactRepository.findById(any(Long.class))).thenReturn(Optional.of(contact));
 
@@ -60,7 +60,7 @@ public class ContactControllerTests {
 
     @Test
     public void shouldReturnBadRequestWhenEmailIsEmptyForNewContact() throws Exception {
-        ContactData contact = new ContactData(1L, 1L, "Lisa", "", new HashSet<>());
+        ContactData contact = new ContactData(1L, 1L, "Lisa", "",123345678, new HashSet<>());
 
         mockMvc.perform(
                         post("/contacts")
@@ -75,8 +75,8 @@ public class ContactControllerTests {
 
     @Test
     public void shouldReturnBadRequestWhenEmailIsDuplicatedForNewContact() throws Exception {
-        ContactData contactLisa = new ContactData(1L, 1L, "Lisa", "lisa@test.com", new HashSet<>());
-        ContactData contactMaggie = new ContactData(2L, 1L, "Maggie", "lisa@test.com", new HashSet<>());
+        ContactData contactLisa = new ContactData(1L, 1L, "Lisa", "lisa@test.com",123345678, new HashSet<>());
+        ContactData contactMaggie = new ContactData(2L, 1L, "Maggie", "lisa@test.com",123345678, new HashSet<>());
 
         when(contactRepository.findByEmail(any(String.class))).thenReturn(Optional.of(contactLisa));
 
@@ -93,7 +93,7 @@ public class ContactControllerTests {
 
     @Test
     public void shouldReturnBadRequestWhenContactNameIsEmptyForNewContact() throws Exception {
-        ContactData contact = new ContactData(1L, 1L, "", "lisa@test.com", new HashSet<>());
+        ContactData contact = new ContactData(1L, 1L, "", "lisa@test.com", 123345678,new HashSet<>());
 
         mockMvc.perform(
                         post("/contacts")
@@ -120,7 +120,7 @@ public class ContactControllerTests {
 
     @Test
     public void shouldReturnOkWhenSavingContact() throws Exception {
-        ContactData contact = new ContactData(1L, 1L, "Lisa", "lisa@test.com", new HashSet<>());
+        ContactData contact = new ContactData(1L, 1L, "Lisa", "lisa@test.com",123345678, new HashSet<>());
 
         when(contactRepository.save(any(ContactData.class))).thenReturn(contact);
 
