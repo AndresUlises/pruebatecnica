@@ -12,4 +12,6 @@ public interface IContactService {
     Contact findById(Long id);
 
     Contact save(Contact contact) throws RequiredFieldException;
+
+    void deleteContact(Long id);
 }

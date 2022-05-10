@@ -70,4 +70,13 @@ public class ContactService implements IContactService {
             throw new DuplicatedContactException("Unable to create contact due duplicated email: " + contact.getEmail());
         }
     }
+
+    @Override
+    public void deleteContact(Long contactId) {
+        boolean exists = contactRepository.existsById(contactId);
+        if (!exists) {
+            throw new ContactNotFoundException("contact with id " + contactId + " does not exist");
+        }
+        contactRepository.deleteById(contactId);
+    }
 }

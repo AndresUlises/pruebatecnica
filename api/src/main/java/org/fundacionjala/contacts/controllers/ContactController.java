@@ -4,7 +4,9 @@ import org.fundacionjala.contacts.exceptions.ContactNotFoundException;
 import org.fundacionjala.contacts.exceptions.RequiredFieldException;
 import org.fundacionjala.contacts.models.Contact;
 import org.fundacionjala.contacts.repository.ContactRepository;
+import org.fundacionjala.contacts.services.ContactService;
 import org.fundacionjala.contacts.services.IContactService;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -12,13 +14,13 @@ import java.util.List;
 @RestController
 public class ContactController {
 
-    private final ContactRepository contactRepository;
-
+    private final ContactService contactService;
     private final IContactService service;
 
-    public ContactController(ContactRepository contactRepository, IContactService service) {
-        this.contactRepository = contactRepository;
+    @Autowired
+    public ContactController(ContactService contactService, IContactService service) {
         this.service = service;
+        this.contactService = contactService;
     }
 
     @GetMapping("/contacts")
@@ -34,5 +36,10 @@ public class ContactController {
     @PostMapping("/contacts")
     public Contact saveContact(@RequestBody Contact contact) throws RequiredFieldException {
         return service.save(contact);
+    }
+
+    @DeleteMapping("/contacts/{id}")
+    public void deleteContactById(@PathVariable("id") Long id) {
+        service.deleteContact(id);
     }
 }
